@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <script src="SCRIPT/jquery-3.5.1.min.js"></script>
+
+    <!-- head of the homePage, where the styling is defined ------------------------------------------------------------------------>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./STYLE/STYLE_homePage.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>GATOR COUNSEL</title>
+
+        <!-- Icons links ---------------------------------------------------------->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- .(end) Icons links ---------------------------------------------------->
+
+
+    </head>
+    <!-- .(end) head of the homePage, where the styling is defined --------------------------------------------------------------------->
+
+    <!-- header of the homePage --------------------------------------------------------------------------------------------------------->
+    <div class="pre-header">
+
+        <img src="images/US_flag_large_51_stars.png" class="pre-header-usa" alt=EN-US>
+        <p class="text-pre-header">USA-EN</p>
+
+
+        <div class="account-menu">
+            <input type="button" class="button-pre-header" id="logIn" readonly value="LOG IN" onclick="openLogIn()"></input>
+            <input type="button" class="button-pre-header" id="signUp" readonly value="SIGN UP" onclick="openSignUp()"></input>
+        </div>
+        <p class="user-text-pre-header" id="user"></p>
+
+        <input type="image" class="pre-header-login" alt="Log In" src="images/outline_person_outline_black_24dp.png" readonly value="open" onclick="toggleAccountMenu()"></input>
+        <input type="image" class="pre-header-profile" alt="Profile" src="images/outline_person_outline_black_24dp.png" readonly value="open" onclick="toggleProfileMenu()"></input>
+
+
+    </div>
+    <div class="header">
+        <div class="logo">       
+            <p class="text-header">GATOR COUNSEL</p>
+            <img class="gator-logo" alt="gator counsel" src="images/Florida_Gators_gator_logo.png" readonly value="open"></input>
+        </div>
+        <div class="container-options-header">
+            <div class="options-header-actual">
+                HOME PAGE
+            </div>
+            <div class="options-header" onclick="window.location.href ='product.html'">
+                PRODUCT
+            </div>
+            <div class="options-header" onclick=showAlert()>
+                DOWNLOAD
+            </div>
+            <div class="options-header"  onclick="window.location.href ='faq.html'">
+                FAQ
+            </div>
+            <div class="options-header"  onclick="window.location.href ='aboutUs.html'">
+                ABOUT US
+            </div>
+        </div>
+
+        <div class="search">
+            <form id="searchform">
+                <input class="searchTerm" id="search" type="text" name="search" title="Search" />
+            </form>
+                <button class="searchButton" id="submit" title="Search">
+                    <i class="fa fa-search"></i>
+                </button>
+             </div>
+
+    </div>
+
+    <div class="body">
+        <div class="profile-menu">
+            <input type="button" class="button-profile-menu" readonly value="PROFILE" onclick="openProfile()"></input>
+            <input type="button" class="button-profile-menu" readonly value="LOG OUT" onclick="sureLogOut()"></input>
+            <div class="logout-menu">
+                <input type="button" class="button-logout-menu" readonly value="YES" onclick="logOut()"></input>
+                <input type="button" class="button-logout-menu" readonly value="NO" onclick="noLogOut()"></input>
+            </div>
+
+        </div>
+
+        <div class="mask"></div>
+            <div class="logIn-menu">
+                <input type="image" class="close-logIn" alt="image" src="images/outline_close_black_24dp.png" readonly value="CLOSE" onclick="closeLogIn()"></input>
+                <div class="container-logIn-menu">
+                    <p class="main-text-logIn-menu">LOG IN FORM</p><br><br>
+                    <form action="javascript:void(0);" onsubmit="checkCookie()">
+                        <label for="form1-logIn" class="text-logIn-menu">Email:</label>
+                        <input type="text" class="form-logIn" id="form1-logIn" name="email" placeholder="Type your email..." required><br>
+                        <br>
+                        <label for="form2-logIn" class="text-logIn-menu">Password:</label>
+                        <input type="password" class="form-logIn" id="form2-logIn" name="password" show="*" placeholder="Type your password..." required>
+                        <br>
+                        <input type="submit" class="button-logIn" readonly value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="signUp-menu">
+                <input type="image" class="close-logIn" alt="image" src="images/outline_close_black_24dp.png" readonly value="CLOSE" onclick="closeSignUp()"></input>
+                <div class="container-signUp-menu">
+                    <p class="main-text-logIn-menu">SIGN UP FORM</p>
+                    <form action="javascript:void(0);" onsubmit="checkCookieFirst()">
+                        <p class="secondary-text-logIn-menu">ACCOUNT INFORMATION</p>
+                        <label for="form1-signUp" class="text-signUp-menu">Email:</label>
+                        <input type="text" class="form-logIn" id="form1-signUp" name="email" placeholder="Type your email..." required><br>
+                        <br>
+                        <label for="form2-signUp" class="text-signUp-menu">Password:</label>
+                        <input type="password" class="form-logIn" id="form2-signUp" name="password" show="*" placeholder="Type your password..." required>
+                        <br><br>
+
+                        <p class="secondary-text-logIn-menu">PERSONAL INFORMATION</p><br>
+                        <label for="form3-signUp" class="text-signUp-menu">Name and surname:</label>
+                        <input type="text" class="form-logIn" id="form3-signUp"  name="password" placeholder="Type your complete name..." required>
+                        <br><br>
+                        <label for="form4-signUp" class="text-signUp-menu">Username:</label>
+                        <input type="text" class="form-logIn" id="form4-signUp" name="username" placeholder="Type your username..." required>
+                        <br><br>
+                        <label for="form5-signUp" class="text-signUp-menu">Date of birth:</label>
+                        <input type="date" class="form-logIn" id="form5-signUp" name="birth" placeholder="Type your password..." required>
+                        <br><br>
+                        <label for="form6-signUp" class="text-signUp-menu">Interested in:</label>
+                        <input type="text" class="form-logIn" id="form6-signUp" name="interests" placeholder="Type your interests..." required>
+                        <br><br>
+                        <input type="submit" class="button-logIn" readonly value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="profile">
+                <input type="image" class="close-logIn" alt="image" src="images/outline_close_black_24dp.png" readonly value="CLOSE" onclick="closeProfile()"></input>
+                <div class="container-profile">
+                    <p class="main-text-logIn-menu">PROFILE</p>
+
+                        <p class="secondary-text-logIn-menu">ACCOUNT INFORMATION</p>
+                        <input type="image" class="profile-photo" alt="image" src="images/outline_person_outline_white_24dp.png" readonly value="open"></input>
+                        <p id="random1" class="text-signUp-menu">Number of likes (received):</p>
+                        <p id="random2" class="text-signUp-menu">Number of likes (given):</p>
+                        <p id="random3" class="text-signUp-menu">Number of shared experiences:</p><br>
+
+                        <p class="secondary-text-logIn-menu">PERSONAL INFORMATION</p>
+                        <p id="profile-info1" class="text-signUp-menu">Name and surname:</p>
+                        <p id="profile-info2" class="text-signUp-menu">Username:</p>
+                        <p id="profile-info3" class="text-signUp-menu">Date of birth:</p>
+                        <p id="profile-info4" class="text-signUp-menu">Interests:</p><br>
+
+                    <form action="javascript:void(0);" onsubmit="modCookie([],7)">
+
+                        <p class="secondary-text-logIn-menu">PERSONAL INFORMATION MODIFICATION</p><br>
+                        <label for="form1-profile" class="text-signUp-menu">Name and surname:</label>
+                        <input type="text" class="form-logIn" id="form1-profile" name="password" placeholder="Type your complete name..." required>
+                        <br><br>
+                        <label for="form2-profile" class="text-signUp-menu">Username:</label>
+                        <input type="text" class="form-logIn" id="form2-profile" name="username" placeholder="Type your username..." required>
+                        <br><br>
+                        <label for="form3-profile" class="text-signUp-menu">Date of birth:</label>
+                        <input type="date" class="form-logIn" id="form3-profile" name="birth" placeholder="Type your password..." required>
+                        <br><br>
+                        <label for="form4-profile" class="text-signUp-menu">Interested in:</label>
+                        <input type="text" class="form-logIn" id="form4-profile" name="interests" placeholder="Type your interests..." required>
+                        <br><br>
+
+                        <input type="submit" class="button-logIn" readonly value="Upload" onclick="modifyProfile()">
+                    </form>
+                    <div class="mask2"></div>
+                    <div class="modification">
+                        <input type="image" class="close-logIn" alt="image" src="images/outline_close_black_24dp.png" readonly value="CLOSE" onclick="closeModify()"></input>
+                        <div class="container-modification">
+                            <p class="secondary-text-logIn-menu">YOUR ACCOUNT INFORMATION HAS BEEN MODIFIED SUCCESFULLY!</p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- .(end) header of the homePage --------------------------------------------------------------------------------------------------------->
+
+    <!-- body of the homePage  ----------------------------------------------------------------------------------------------------------------->
+    <body>
+        <main id = "homePage-Main">
+
+            <!-- image of the frist section---------------------------------------------->
+            <div class = "firstSection" >
+                    <img src="./IMAGES/back.png" alt="firstSectionImage1" class = "firstSectionImage1">
+                    <div class="firstSectionTitle">Welcome to Gator Counsel!</div>
+                    <div class="firstSectionDescr">Gator Counsel is a newly and fresh project focused on the wellness and care of our users. It offers an innovative way to have group counseling or private chats with your psycologist.</div>
+                    <button class="buttonVwTrips" onclick="window.location.href ='adventures.html'">IM INTERESTED!</button>
+            </div>
+            <div class = "lower-margin">
+
+            </div>
+
+            <!-- .(end) image of the frist section-------------------------------------->
+
+
+            <!-- inbox -------------------------------------------------->
+            <h1 class = "text4D">_______________________________________</h1>
+            <div class="inbox" id="inbox">
+                <label for="inbox-input">
+                <div class="inboxTitle">Want GATOR COUNSEL in your inbox?</div>
+                <div class="inboxTxt">Be the first to know about new feautures. We're good penpal. Promise.</div>
+                </label>
+                <img src="./IMAGES/gatorrr.png" alt="firstSectionImage1" class = "inboxImage">
+                <button class="buttonInbox">SIGN UP</button>
+                <input type="text" id="inbox-input" class="inboxQuery" placeholder="Type your email, please." required>
+            </div>
+            <!-- .(end) inbox -------------------------------------------------->
+
+        </main>
+
+
+
+
+    </body>
+    <!-- .(end) body of the homePage, where the styling is defined ------------------------------------------------------------------------>
+
+    <!-- footer of the homePage ------------------------------------------------------------------------------------------------------------>
+    <div class="header">
+        <div class="logo">       
+            <p class="text-header">GATOR COUNSEL</p>
+            <img class="gator-logo" alt="gator counsel" src="images/Florida_Gators_gator_logo.png" readonly value="open"></input>
+        </div>
+        <div class="container-options-header">
+            <div class="options-header-actual">
+                HOME PAGE
+            </div>
+            <div class="options-header" onclick="window.location.href ='product.html'">
+                PRODUCT
+            </div>
+            <div class="options-header" onclick=showAlert()>
+                DOWNLOAD
+            </div>
+            <div class="options-header"  onclick="window.location.href ='faq.html'">
+                FAQ
+            </div>
+            <div class="options-header"  onclick="window.location.href ='aboutUs.html'">
+                ABOUT US
+            </div>
+        </div>
+        <div class="container-images-footer">
+            <img src="images/instagram-new-outline.png" class="images-footer" alt="insta">
+            <img src="images/facebook-outline.png" class="images-footer" alt="facebook">
+            <img src="images/52-527592_visit-twitter-twitter-png-logo-outline.png" class="images-footer" alt="twitter">
+        </div>
+    </div>
+    <!-- .(end) footer of the homePage ------------------------------------------------------------------------------------------------------------>
+
+
+    <script src="SCRIPT/scrithomePage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+
+</html>
