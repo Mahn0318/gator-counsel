@@ -4,10 +4,6 @@ font-family: 'Arimo', sans-serif;
 font-family: 'Cabin', sans-serif;
 font-family: 'Josefin Sans', sans-serif;
 */
-@font-face {
-font-family: "Bebas Neue";
-src: url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Cabin&family=Josefin+Sans&display=swap&family=Bebas+Neue&display=swap');
-}
 
 
 :root{
@@ -32,7 +28,7 @@ src: url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Cabin&f
 }
 
 .text-pre-header{
-    font-family: "Bebas Neue";
+    font-family: 'Bebas Neue';
     font-size: 14px;
     color:var(--dark);
     margin-right: 5%;
