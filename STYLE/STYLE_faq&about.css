@@ -4,6 +4,11 @@ font-family: 'Arimo', sans-serif;
 font-family: 'Cabin', sans-serif;
 font-family: 'Josefin Sans', sans-serif;
 */
+@font-face {
+font-family: "Bebas Neue";
+src: url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Cabin&family=Josefin+Sans&display=swap&family=Bebas+Neue&display=swap');
+}
+
 
 :root{
     --light: #f8f9fa;
