@@ -32,7 +32,7 @@ src: url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Cabin&f
 }
 
 .text-pre-header{
-    font-family: 'Bebas Neue';
+    font-family: "Bebas Neue";
     font-size: 14px;
     color:var(--dark);
     margin-right: 5%;
